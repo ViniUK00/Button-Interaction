@@ -2,6 +2,11 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/background"
+        android:scaleType="centerCrop" />
 
     <Button
         android:id="@+id/topLeftButton"
@@ -10,6 +15,7 @@
         android:text="Top Left Button"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        style="@style/GlobalButtonStyle"
     />
     <Button
         android:id="@+id/topRightButton"
@@ -18,7 +24,9 @@
         android:text="Top Right Button"
         android:layout_alignParentEnd="true"
         android:layout_alignParentTop="true"
+        style="@style/GlobalButtonStyle"
         />
+
 
     <Button
         android:id="@+id/centerButton"
@@ -26,6 +34,7 @@
         android:layout_height="wrap_content"
         android:text="Center Button"
         android:layout_centerInParent="true"
+        style="@style/GlobalButtonStyle"
     />
 
     <Button
@@ -35,6 +44,7 @@
         android:text="Bottom Left Button"
         android:layout_alignParentStart="true"
         android:layout_alignParentBottom="true"
+        style="@style/GlobalButtonStyle"
         />
 
     <Button
@@ -44,5 +54,6 @@
         android:text="Bottom Right Button"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
+        style="@style/GlobalButtonStyle"
         />
 </RelativeLayout>

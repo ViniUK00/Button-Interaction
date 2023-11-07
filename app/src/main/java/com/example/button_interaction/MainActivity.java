@@ -3,8 +3,10 @@ package com.example.button_interaction;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
@@ -24,46 +26,52 @@ public class MainActivity extends AppCompatActivity {
         topLeftButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showToast("Top Left Button Clicked");
+                showCustomToast("Top Left Button Clicked",350 ,800);
             }
         });
 
         topRightButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showToast("Top Right Button Clicked");
+                showCustomToast("Top Right Button Clicked",350,800);
             }
         });
 
         bottomLeftButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showToast("Bottom Left Button Clicked");
+                showCustomToast("Bottom Left Button Clicked",300,1900);
             }
         });
 
         bottomRightButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showToast("Bottom Right Button Clicked");
+                showCustomToast("Bottom Right Button Clicked",300,1900);
             }
         });
 
         centerButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showToast("Center Button Clicked");
+                showCustomToast("Center Button Clicked",350,1380);
             }
         });
     }
 
-    private void showToast(String message) {
-        Toast toast = Toast.makeText(this, message, Toast.LENGTH_SHORT);
+    private void showCustomToast(String message, int xOffset, int yOffset) {
+        LayoutInflater inflater = getLayoutInflater();
+        View layout = inflater.inflate(R.layout.custom_toast, findViewById(R.id.custom_toast_layout));
+        TextView text = layout.findViewById(R.id.custom_toast_text);
+        text.setText(message);
 
-        // Customize the toast message's position to appear at the center
-        toast.setGravity(Gravity.CENTER, 0, 0);
+        Toast toast = new Toast(getApplicationContext());
+        toast.setGravity(Gravity.TOP | Gravity.START, xOffset, yOffset);
+        toast.setDuration(Toast.LENGTH_SHORT);
+        toast.setView(layout);
 
         toast.show();
     }
+
 
 }
